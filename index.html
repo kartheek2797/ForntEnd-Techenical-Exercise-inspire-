@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Book Library</title>
+</head>
+<body>
+    <div id="author-info">
+        <h2 id="author-name"></h2>
+        <p id="author-birthday"></p>
+        <p id="author-birthplace"></p>
+    </div>
+    <div id="sort-toggle" class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-lg-3"><label>Sort by: </label></div>
+            <div class="col-md-4 col-sm-6 col-lg-5">
+                <select id="sort-select" onchange="displayBookList(booksData)" class="form-control sortField">
+                    <option value="title">Title</option>
+                    <option value="publishDate">Publish Date</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-5 col-lg-3">
+                <button onclick="openAddModal()" class="btn btn-success">Add New Book</button>
+            </div>
+        </div>        
+    </div>
+    <div id="book-list"></div>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="popup-header">
+                <span class="close-btn" onclick="closeEditModal()">&times;</span>
+                <h2>Edit Book</h2>
+            </div>
+            <div class="popup-fields">
+                <label for="newTitle">New Title:</label>
+                <input type="text" id="newTitle" class="form-control">
+            </div>
+            <div class="popup-fields">
+                <label for="checkField">Image Upload</label>
+                <input type="checkbox" id="toggleCheckbox" onchange = "toggleFields()">
+                <div id="textField">
+                    <label for="newImage">New Image URL:</label>
+                    <input type="text" id="textImageField" class="form-control">
+                </div>
+                <div id="fileField">
+                    <label for="newImage">Upload Image</label>
+                    <input type="file" id="fileImageField" class="form-control">
+                </div>
+            </div>
+            <div class="popup-fields">
+                <label for="newPurchaseUrl">New Purchase URL:</label>
+                <input type="text" id="newPurchaseUrl" class="form-control">
+            </div>
+            <div class="popup-fields">
+                <label for="newPublishDate">New Publish Date:</label>
+                <input type="text" id="newPublishDate" class="form-control">
+            </div>
+            <input type="text" id="oldTitle" hidden>
+            <br/>
+            <button onclick="saveEdit()" class="btn btn-success">Save Changes</button>
+        </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <div class="popup-header">
+                <span class="close-btn" onclick="closeAddModal()">&times;</span>
+                <h2>Add New Book</h2>
+            </div>
+            <div class="popup-fields">
+                <label for="addTitle">New Title:</label>
+                <input type="text" id="addTitle" class="form-control">
+            </div>
+            <div class="popup-fields">
+                <label for="checkField">Image Upload</label>
+                <input type="checkbox" id="addtoggleCheckbox" onchange = "addtoggleFields()">
+                <div id="addtextField">
+                    <label for="newImage">New Image URL:</label>
+                    <input type="text" id="addtextImageField" class="form-control">
+                </div>
+                <div id="addfileField">
+                    <label for="newImage">Upload Image</label>
+                    <input type="file" id="addfileImageField" class="form-control">
+                </div>
+            </div>
+            <div class="popup-fields">
+                <label for="newPurchaseUrl">New Purchase URL:</label>
+                <input type="text" id="addnewPurchaseUrl" class="form-control">
+            </div>
+            <div class="popup-fields">
+                <label for="newPublishDate">New Publish Date:</label>
+                <input type="text" id="addnewPublishDate" class="form-control">
+            </div>
+            <br/>
+            <button onclick="addBook()" class="btn btn-success">Add Book</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

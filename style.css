@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    }
+    
+    #author-info {
+    margin-bottom: 20px;
+    padding-left: 10px;
+    }
+    
+    #book-list {
+    display: flex;
+    flex-wrap: wrap;
+    }
+    #book-list img{
+        width:20%
+    }
+    
+    .book {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    width: calc(50% - 20px); /* Two columns for desktop */
+    }
+    
+    @media (max-width: 600px) {
+    .book {
+    width: calc(100% - 20px); /* Single column for mobile */
+    }
+    }
+    
+    #sort-toggle {
+    margin-top: 20px;
+    display:inline-flex;
+    padding-left: 10px;
+    }
+    #sort-toggle label{
+        width:100px;
+        margin-top: 5px;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+    }
+    .sortField{
+        margin-bottom: 5px;
+    }
+    
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fefefe;
+        padding: 20px;
+        border: 1px solid #888;
+    }
+    
+    .close-btn {
+        color: #fff;
+        float: right;
+        font-size: 26px;
+        cursor: pointer;
+        padding-right: 10px;
+    }
+    .close-btn:hover{
+        color:black;
+        cursor: pointer;
+    }
+    .btn-danger{
+        margin-left: 5px;
+    }
+    .modal-content .popup-fields{
+        margin-bottom: 15px;
+    }
+    .popup-header{
+        background: #337ab7;
+        border-radius: 4px;
+        padding: 6px;
+        margin-bottom: 10px;
+    }
+    .popup-header h2{
+        color: #fff; 
+        padding-left: 10px;
+        margin: auto;
+    }
+    .bookLink:hover{
+        text-decoration: none;
+    }
